@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { themeColor } from "../theme/theme";
 
-export default function Welcome() {
+export default function Welcome(props) {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: themeColor.bg }}>
       <View
@@ -36,6 +36,7 @@ export default function Welcome() {
         </View>
         <View>
           <TouchableOpacity
+            onPress={() => props.navigation.navigate("Signup")}
             style={{
               backgroundColor: "rgb(250, 204, 21)",
               marginHorizontal: 50,
@@ -59,7 +60,10 @@ export default function Welcome() {
             <Text style={{ fontWeight: "bold", color: "white" }}>
               Already have an account?
             </Text>
-            <TouchableOpacity style={{ marginLeft: 5 }}>
+            <TouchableOpacity
+              style={{ marginLeft: 5 }}
+              onPress={() => props.navigation.navigate("Login")}
+            >
               <Text style={{ fontWeight: "bold", color: themeColor.color }}>
                 Login
               </Text>
